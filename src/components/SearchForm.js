@@ -1,4 +1,5 @@
 import React from 'react'
+import ArtList from './ArtList';
 import { useState } from 'react'
 
 const SearchForm = () => {
@@ -58,11 +59,19 @@ const SearchForm = () => {
             </form>
         </div>
         <div className='imageFlex'>
-            {artSearch.map((artwork) => {
+            <h2>Works of art</h2>
+            <div>
+                {artSearch.map((artwork) => {
                 return (
-                    
-                )
-            })}
+                        <ArtList 
+                            key={artwork.id}
+                            alt={artwork.title}
+                            title={artwork.longTitle}
+                            imagePath={artwork.webImage.url}
+                        />
+                    )
+                })}
+            </div>
         </div>
     </>
   )

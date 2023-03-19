@@ -1,10 +1,14 @@
 import React from 'react'
 
-const ArtList = () => {
+const ArtList = ({alt, title, imagePath}) => {
+    
+
   return (
-    <div>
-      <h2>hi</h2>
-    </div>
+    <article>
+        <div className='img-container'>
+            <img src={imagePath} alt={alt} />
+        </div>
+    </article>
   )
 }
 
