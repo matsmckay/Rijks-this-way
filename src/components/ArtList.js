@@ -1,15 +1,24 @@
-import React from 'react'
+import React from 'react';
+import ArtPiece from '../components/ArtPiece';
 
-const ArtList = ({alt, title, imagePath}) => {
+const ArtList = ({id, alt, title, imagePath, artist, productionPlaces}) => {
     
 
   return (
     <article>
-        <div className='img-container'>
-            <img src={imagePath} alt={alt} />
+        <div className='list-container'>
+            <ArtPiece 
+                id={id}
+                alt={alt}
+                title={title}
+                imagePath={imagePath}
+                artist={artist}
+                productionPlaces={productionPlaces}
+
+            />
         </div>
     </article>
   )
 }
 
-export default ArtList
+export default ArtList;
