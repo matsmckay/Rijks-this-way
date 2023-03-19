@@ -1,11 +1,13 @@
 import React from 'react';
-
+import SearchForm from '../components/SearchForm';
+import ArtList from '../components/ArtList';
 
 const Home = () => {
     return (
-        <div>
-          <h1>hey!</h1>
-        </div>
+        <main>
+          <SearchForm />
+          <ArtList />
+        </main>
     )
 }
 
