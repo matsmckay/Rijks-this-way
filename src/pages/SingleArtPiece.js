@@ -45,9 +45,19 @@ const SingleArtPiece = () => {
    console.log(artPiece.materials)
     return (
         <section className='section artpiece-section'>
+            <Link to="/" className='btn'>
+                back home
+            </Link>
+            <h2>{artPiece.longTitle}</h2>
+            <div className="descImage">
+                <img src={artPiece.webImage.url} alt={artPiece.title} />
+            </div>
             <article>
-                 <p>{artPiece.materials}</p>
-                 <p>{JSON.stringify(artPiece.acquisition)}</p>
+                 <p>Quick description: {artPiece.scLabelLine}</p>
+                 <p>Materials: {artPiece.materials.join(' ')}</p>
+                 <p>The acquisition of this piece of art was: by method of {artPiece.acquisition.method} {artPiece.acquisition.creditLine} on {artPiece.acquisition.date.replace('T00:00:00', '')}</p>
+                 <p>Physical medium: {artPiece.physicalMedium}</p>
+
             </article>
     </section>
   )

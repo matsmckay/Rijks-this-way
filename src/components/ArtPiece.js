@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ArtPiece = ({id, alt, title, imagePath, artist, productionPlaces}) => {
+const ArtPiece = ({id, alt, title, imagePath, productionPlaces}) => {
   return (
     <article className='art-piece'>
         <div className="img-container">

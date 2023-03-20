@@ -60,7 +60,7 @@ const SearchForm = () => {
         </div>
         <div className='imageFlex'>
             <h2>Works of art</h2>
-            <div>
+            <div className='list-container'>
                 {artSearch.map((artwork) => {
                 return (
                         <ArtList 
@@ -69,8 +69,7 @@ const SearchForm = () => {
                             alt={artwork.title}
                             title={artwork.longTitle}
                             imagePath={artwork.webImage.url}
-                            artist={artwork.principalOrFirstMaker}
-                            productionPlaces = {artwork.productionPlaces}
+                            productionPlaces = {artwork.productionPlaces[0]}
                         />
                     )
                 })}

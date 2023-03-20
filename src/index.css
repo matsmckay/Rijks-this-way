@@ -76,10 +76,22 @@ img {
   display: block;
 }
 
+.btn {
+  background-color: #476a2e;
+  color: orange;
+  font-size: 2rem;
+  border-radius: 15px;
+}
+
 .section {
   padding: 5rem 0;
 }
 
+/* 
+====== 
+Navbar
+======
+*/
 
 .navbar {
   background: var(--mainWhite);
@@ -140,6 +152,46 @@ About
   font-weight: 400;
   letter-spacing: 2px;
 }
+
+/* 
+====== 
+ArtPiece
+======
+*/
+
+/* .art-piece {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+.list-container {
+  width: calc(100% / 3);
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.art-piece {
+  display: flex;
+}
+/* 
+====== 
+Single Art Piece
+======
+*/
+
+.artpiece-section h2 {
+    text-align: center;
+}
+
+.descImage {
+  display: flex;
+  justify-content: center;
+}
+
+.descImage img {
+  width: 20%;
+}
+
 
 /* 
 ====== 
