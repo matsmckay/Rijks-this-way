@@ -65,7 +65,7 @@ const SearchForm = () => {
                 return (
                         <ArtList 
                             key={artwork.id}
-                            id={artwork.id}
+                            id={artwork.objectNumber}
                             alt={artwork.title}
                             title={artwork.longTitle}
                             imagePath={artwork.webImage.url}
