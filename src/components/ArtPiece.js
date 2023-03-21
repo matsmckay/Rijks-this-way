@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+
 
 const ArtPiece = ({id, alt, title, imagePath, productionPlaces}) => {
   return (
@@ -18,3 +18,5 @@ const ArtPiece = ({id, alt, title, imagePath, productionPlaces}) => {
 }
 
 export default ArtPiece
+
+// Figured out how to pass data through react-router-dom Link with the article: https://ui.dev/react-router-pass-props-to-link
