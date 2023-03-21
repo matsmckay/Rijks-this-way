@@ -1,13 +1,17 @@
 import React from 'react';
 import Loading from '../components/Loading';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+
 
 
 const SingleArtPiece = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [artPiece, setArtPiece] = useState(null);
+    const location = useLocation();
+    const {from} = location.state;
+   
     
     React.useEffect(() => {
         setLoading(true);
@@ -25,7 +29,7 @@ const SingleArtPiece = () => {
                 if (data.artObject) {
                     setArtPiece(data.artObject)
                 } else {
-                    setArtPiece(null)
+                    setArtPiece([])
                 }
                 setLoading(false)
             } catch (error) {
@@ -39,10 +43,12 @@ const SingleArtPiece = () => {
     if (loading) {
         return <Loading />
     }
-    if (!artPiece) {
+    if (!artPiece ) {
         return <h2>No priceless piece of art to display</h2>
     }
-   console.log(artPiece.materials)
+    // if (artPiece.webImage === true) {
+    //     return  
+    
     return (
         <section className='section artpiece-section'>
             <Link to="/" className='btn'>
@@ -50,7 +56,8 @@ const SingleArtPiece = () => {
             </Link>
             <h2>{artPiece.longTitle}</h2>
             <div className="descImage">
-                <img src={artPiece.webImage.url} alt={artPiece.title} />
+                <img src={from} alt={artPiece.title} />
+                {/* SOME ART WORKS' DETAILS LOOKED UP BY OBJECT-NUMBER WON'T RETURN AN IMAGE */}
             </div>
             <article>
                  <p>Quick description: {artPiece.scLabelLine}</p>
@@ -62,5 +69,7 @@ const SingleArtPiece = () => {
     </section>
   )
 }
+
+   
 
 export default SingleArtPiece
