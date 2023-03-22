@@ -3,10 +3,14 @@ import SearchForm from '../components/SearchForm';
 import ArtList from '../components/ArtList';
 
 const Home = () => {
+    const [loading, setLoading] = useState(true);
     const [artSearch, setArtSearch] = useState([]);
     const [userInput, setUserInput] = useState('');
     const [searchError, setSearchError] = useState(false);
+    const [message, setMessage] = useState('');
+
     const searchArt = async (e) => {
+        setLoading(true);
         const url = new URL (`https://www.rijksmuseum.nl/api/en/collection`);
 
         e.preventDefault();
@@ -27,22 +31,31 @@ const Home = () => {
             } else {
                 setSearchError(false)
             }
-        }
-        catch (error){
+        } catch (error) {
+            console.log(error)
             setSearchError(true);
+            setLoading(false);
+            setMessage(userInput);
+            setUserInput('')
         }
     }
 
     const handleChange = (e) => {
         setUserInput(e.target.value);
+        
     }
+
+    console.log(message)
+
     return (
         <main>
             <SearchForm
                 searchArt={searchArt}
                 handleChange={handleChange}
                 userInput={userInput}
+                setUserInput={setUserInput}
                 searchError={searchError}
+                message={message}
             />
             <ArtList
                 artSearch={artSearch}
