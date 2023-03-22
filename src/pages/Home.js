@@ -45,8 +45,6 @@ const Home = () => {
         
     }
 
-    console.log(message)
-
     return (
         <main>
             <SearchForm

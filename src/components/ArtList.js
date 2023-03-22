@@ -11,7 +11,7 @@ const ArtList = ({artSearch}) => {
             <div className="art-center">
                 {artSearch.map((artwork) => {            
                 return (
-                <article className='art-piece'>
+                <article key={artwork.id} className='art-piece'>
                     <div className="img-container">
                         <img src={artwork.webImage.url} alt={artwork.alt} />
                     </div>
