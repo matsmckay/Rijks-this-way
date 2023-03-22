@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { DiGulp } from 'react-icons/di';
+import { FaPaintBrush } from 'react-icons/fa';
+
 
 const Navbar = () => {
     return (
@@ -11,7 +12,7 @@ const Navbar = () => {
                     <p>(Guaranteed to leave you 5% more cultured after every search! Results may vary)</p>
                     <div className="nav-center">
                         <Link to="/">
-                            <img src=<DiGulp/>  alt="paintbrush home logo link" />
+                            <FaPaintBrush />
                         </Link>
                     </div>
                     <ul className="nav-links">
