@@ -29,14 +29,14 @@ const SingleArtPiece = () => {
                 if (data.artObject) {
                     setArtPiece(data.artObject)
                 } else {
-                    setArtPiece([])
+                    setArtPiece(null)
                 }
                 setLoading(false)
             } catch (error) {
                 console.log(error)
                 setLoading(false)
             }
-            }
+        }
         artInfo();
     },[id])
 
@@ -44,22 +44,19 @@ const SingleArtPiece = () => {
         return <Loading />
     }
     if (!artPiece ) {
-        return <h2>No priceless piece of art to display</h2>
+        return <h2 className='section-title'>No priceless piece of art to display</h2>
     }
-    // if (artPiece.webImage === true) {
-    //     return  
-    
     return (
-        <section className='section artpiece-section'>
-            <Link to="/" className='btn'>
+        <section className='section artPiece-section'>
+            <Link to="/" className='btn btn-primary'>
                 back home
             </Link>
-            <h2>{artPiece.longTitle}</h2>
-            <div className="descImage">
+            <h2 className='section-title'>{artPiece.longTitle}</h2>
+            <div className="art">
                 <img src={from} alt={artPiece.title} />
-                {/* SOME ART WORKS' DETAILS LOOKED UP BY OBJECT-NUMBER WON'T RETURN AN IMAGE */}
             </div>
-            <article>
+
+            <article className='art-info'>
                  <p>Quick description: {artPiece.scLabelLine}</p>
                  <p>Materials: {artPiece.materials.join(' ')}</p>
                  <p>The acquisition of this piece of art was: by method of {artPiece.acquisition.method} {artPiece.acquisition.creditLine} on {artPiece.acquisition.date.replace('T00:00:00', '')}</p>
