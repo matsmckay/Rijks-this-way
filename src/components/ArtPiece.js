@@ -1,20 +1,31 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const ArtPiece = ({id, alt, title, imagePath, productionPlaces}) => {
-  return (
-    <article className='art-piece'>
-        <div className="img-container">
-            <h2>{title}</h2>
-            <p>{productionPlaces}</p>
-            <img src={imagePath} alt={alt} />
-            <Link to= {`/art/${id}`} state = {{from: imagePath}} className='btn' >
-                details
-            </Link>
+const ArtPiece = ({artSearch}) => {
+    
+
+    return (
+        <>
+        <div className='list-container'>
+            {artSearch.map((artwork) => {            
+            return (
+            <article className='art-piece'>
+                <div className="img-container">
+                    <h2>{artwork.title}</h2>
+                    <p>{artwork.productionPlaces}</p>
+                    <img src={artwork.webImage.url} alt={artwork.alt} />
+                    <Link to= {`/art/${artwork.objectNumber}`} state = {{from: artwork.webImage.url}} className='btn' >
+                        details
+                    </Link>
+                </div>
+            </article>)
+            })}
         </div>
-    </article>
-  )
+        {/* <SearchForm
+            
+        /> */}
+        </>
+    )
 }
 
 export default ArtPiece

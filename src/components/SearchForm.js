@@ -1,43 +1,43 @@
 import React from 'react'
-import ArtList from './ArtList';
-import { useState } from 'react'
+// import ArtList from './ArtList';
+// import { useState } from 'react'
 
-const SearchForm = () => {
+const SearchForm = ({searchArt, handleChange, userInput, searchError}) => {
 
-    const [artSearch, setArtSearch] = useState([]);
-    const [userInput, setUserInput] = useState('');
-    const [searchError, setSearchError] = useState(false);
+    // const [artSearch, setArtSearch] = useState([]);
+    // const [userInput, setUserInput] = useState('');
+    // const [searchError, setSearchError] = useState(false);
 
-    const searchArt = async (e) => {
-        const url = new URL (`https://www.rijksmuseum.nl/api/en/collection`);
+    // const searchArt = async (e) => {
+    //     const url = new URL (`https://www.rijksmuseum.nl/api/en/collection`);
 
-        e.preventDefault();
-        url.search = new URLSearchParams({
-            key: `C1So9sXo`,
-            format: 'json',
-            imgonly: true,
-            q: userInput,
-        });
+    //     e.preventDefault();
+    //     url.search = new URLSearchParams({
+    //         key: `C1So9sXo`,
+    //         format: 'json',
+    //         imgonly: true,
+    //         q: userInput,
+    //     });
 
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            console.log(data);
-            setArtSearch(data.artObjects);
-            if (data.artObjects.length === 0) {
-                throw new Error()
-            } else {
-                setSearchError(false)
-            }
-        }
-        catch (error){
-            setSearchError(true);
-        }
-    }
+    //     try {
+    //         const response = await fetch(url);
+    //         const data = await response.json();
+    //         console.log(data);
+    //         setArtSearch(data.artObjects);
+    //         if (data.artObjects.length === 0) {
+    //             throw new Error()
+    //         } else {
+    //             setSearchError(false)
+    //         }
+    //     }
+    //     catch (error){
+    //         setSearchError(true);
+    //     }
+    // }
 
-    const handleChange = (e) => {
-        setUserInput(e.target.value);
-    }
+    // const handleChange = (e) => {
+    //     setUserInput(e.target.value);
+    // }
 
   return (
     <>
@@ -57,23 +57,6 @@ const SearchForm = () => {
                 <button type="submit" className="button">Search</button>
                 {searchError ? <p className="errorMessage">Sorry, your search didn't return any of our timeless works of art. Please try a different search.</p> : null}
             </form>
-        </div>
-        <div className='imageFlex'>
-            <h2>Works of art</h2>
-            <div className='list-container'>
-                {artSearch.map((artwork) => {
-                return (
-                        <ArtList 
-                            key={artwork.id}
-                            id={artwork.objectNumber}
-                            alt={artwork.title}
-                            title={artwork.longTitle}
-                            imagePath={artwork.webImage.url}
-                            productionPlaces = {artwork.productionPlaces[0]}
-                        />
-                    )
-                })}
-            </div>
         </div>
     </>
   )

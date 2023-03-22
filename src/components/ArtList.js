@@ -1,16 +1,12 @@
 import React from 'react';
 import ArtPiece from '../components/ArtPiece';
 
-const ArtList = ({id, alt, title, imagePath, productionPlaces}) => {
+const ArtList = ({artSearch}) => {
     
 
   return (      
             <ArtPiece 
-                id={id}
-                alt={alt}
-                title={title}
-                imagePath={imagePath}
-                productionPlaces={productionPlaces}
+                artSearch={artSearch}
             />
       )
 }
