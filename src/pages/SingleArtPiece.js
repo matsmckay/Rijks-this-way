@@ -52,7 +52,7 @@ const SingleArtPiece = () => {
                 back home
             </Link>
             <h2 className='section-title'>{artPiece.longTitle}</h2>
-            <div className="art">
+            <div className="art-piece">
                 <img src={from} alt={artPiece.title} />
             </div>
 

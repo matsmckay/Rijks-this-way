@@ -51,7 +51,6 @@ const Home = () => {
                 searchArt={searchArt}
                 handleChange={handleChange}
                 userInput={userInput}
-                setUserInput={setUserInput}
                 searchError={searchError}
                 message={message}
             />

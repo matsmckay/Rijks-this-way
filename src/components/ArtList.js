@@ -11,13 +11,13 @@ const ArtList = ({artSearch}) => {
             <div className="art-center">
                 {artSearch.map((artwork) => {            
                 return (
-                <article key={artwork.id} className='art-piece'>
+                <article key={artwork.id} className='art'>
                     <div className="img-container">
                         <img src={artwork.webImage.url} alt={artwork.alt} />
                     </div>
                     <div className="art-footer">
-                        <h2>{artwork.title}</h2>
-                        <p>{artwork.productionPlaces[0]}</p>
+                        <h3>{artwork.title}</h3>
+                        <h4>{artwork.productionPlaces[0]}</h4>
                         <Link to= {`/art/${artwork.objectNumber}`} state = {{from: artwork.webImage.url}} className='btn' >
                             details
                         </Link>
