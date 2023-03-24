@@ -53,6 +53,7 @@ const Home = () => {
                 userInput={userInput}
                 searchError={searchError}
                 message={message}
+                loading={loading}
             />
             <ArtList
                 artSearch={artSearch}
