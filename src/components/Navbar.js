@@ -9,7 +9,6 @@ const Navbar = () => {
         <nav className='navbar'>
             <div className="nav-title">
                     <h1>N<FaPaintBrush />ght at the R<FaPaintBrush/>jks Museum</h1>
-                    <p>(Guaranteed to leave you 5% more cultured after every search! Results may vary)</p>
             </div>
             <div className="nav-center">
                 <div className="nav-center">

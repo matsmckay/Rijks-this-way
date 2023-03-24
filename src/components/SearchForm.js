@@ -18,8 +18,8 @@ const SearchForm = ({searchArt, searchError, userInput, message, handleChange}) 
                         className="input"
                         required
                     />
-                    <button type="submit" className="button">Search</button>
-                    {searchError ? <p className="errorMessage">Sorry, your search "{message}" didn't return any of our timeless works of art. Please try a different search.</p> : null}
+                    <button type="submit" className="btn btn-search">Search</button>
+                    {searchError ? <p className="error-message">Sorry, your search "{message}" didn't return any of our timeless works of art. Please try a different search.</p> : null}
                 </div>
             </form>
         </section>

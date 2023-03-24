@@ -18,7 +18,7 @@ const ArtList = ({artSearch}) => {
                     <div className="art-footer">
                         <h3>{artwork.title}</h3>
                         <h4>{artwork.productionPlaces[0]}</h4>
-                        <Link to= {`/art/${artwork.objectNumber}`} state = {{from: artwork.webImage.url}} className='btn' >
+                        <Link to= {`/art/${artwork.objectNumber}`} state = {{from: artwork.webImage.url}} className='btn btn-white' >
                             details
                         </Link>
                     </div>

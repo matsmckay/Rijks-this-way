@@ -76,16 +76,58 @@ img {
   display: block;
 }
 
-.btn {
-  background-color: #476a2e;
-  color: orange;
-  font-size: 2rem;
-  border-radius: 15px;
-}
-
 .section {
   padding: 5rem 0;
 }
+
+/* 
+====== 
+Buttons
+======
+*/
+
+.btn, .btn-white, btn-primary {
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  padding: 0.45rem 0.8rem;
+  display: inline-block;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: transparent;
+  border-radius: var(--mainBorderRadius);
+  display: inline-block;
+}
+
+.btn:hover {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+
+.btn-search {
+  margin-top: 1rem;
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+
+.btn-search:hover {
+  background: var(--primaryLightColor);
+  color: var(--primaryColor)
+}
+
+.btn-white {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  border-color: var(--mainWhite);
+}
+
+.btn-white:hover {
+  background: var(--primaryDarkColor);
+  color: var(--offWhite);
+
+}
+
 
 /* 
 ====== 
@@ -106,6 +148,7 @@ Navbar
 .navbar h1 {
   color: var(--primaryColor);
   text-align: center;
+  font-size: 3rem;
 }
 
 .nav-title {
@@ -187,6 +230,12 @@ ArtList
   column-gap: 2rem;
 }
 
+@media screen and (min-width: 576px) {
+  .art-center {
+    grid-template-columns: repeat(auto-fill, minmax(338.8px, 1fr));
+  }
+}
+
 /* 
 ====== 
 ArtPiece
@@ -238,17 +287,52 @@ Single Art Piece
 ======
 */
 
-.artpiece-section h2 {
-    text-align: center;
+.artPiece-section {
+  text-align: center;
 }
 
-.descImage {
-  display: flex;
-  justify-content: center;
+.culture {
+  width: var(--smallWidth);
+  max-width: var(--fullWidth);
+  margin: 0 auto;
+  text-align: left;
 }
 
-.descImage img {
-  width: 20%;
+.culture img {
+  border-radius: var(--mainBorderRadius);
+}
+
+.culture p {
+  font-weight: bold;
+  text-transform: capitalize;
+  line-height: 1.8;
+}
+
+.culture span {
+  margin-right: 0.5rem;
+}
+
+.culture-data {
+  background: var(--primaryLightColor);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--mainBorderRadius);
+  color: var(--primaryColor);
+}
+
+.culture-info {
+  padding-top: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .culture {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .drink-info {
+    padding-top: 0;
+  }
 }
 
 
@@ -265,6 +349,11 @@ Error
 .error-container {
   text-align: center;
   text-transform: capitalize;
+}
+
+.error-message {
+  color: var(--mainRed);
+  padding-top: 1rem; 
 }
 
 /* 

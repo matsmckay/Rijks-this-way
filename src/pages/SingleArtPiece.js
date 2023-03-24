@@ -48,21 +48,39 @@ const SingleArtPiece = () => {
     }
     return (
         <section className='section artPiece-section'>
-            <Link to="/" className='btn btn-primary'>
+            <Link to="/" className='btn btn-white'>
                 back home
             </Link>
             <h2 className='section-title'>{artPiece.longTitle}</h2>
-            <div className="art-piece">
+            <div className="culture">
                 <img src={from} alt={artPiece.title} />
+                <div className="culture-info">
+                 <p>
+                    <span className='culture-data'>
+                        Quick description:     
+                    </span>
+                {artPiece.scLabelLine}
+                </p>
+                 <p>
+                    <span className='culture-data'>
+                        Materials: 
+                    </span>  
+                    {artPiece.materials.join(' ')}
+                </p>
+                 <p>
+                    <span className='culture-data'>
+                    The acquisition of this piece of art was by method of: 
+                    </span>
+                     {artPiece.acquisition.method} {artPiece.acquisition.creditLine} on {artPiece.acquisition.date.replace('T00:00:00', '')}
+                     </p>
+                <p>
+                    <span className='culture-data'>
+                        Physical medium: 
+                    </span>
+                     {artPiece.physicalMedium}
+                </p>
+                </div>
             </div>
-
-            <article className='art-info'>
-                 <p>Quick description: {artPiece.scLabelLine}</p>
-                 <p>Materials: {artPiece.materials.join(' ')}</p>
-                 <p>The acquisition of this piece of art was: by method of {artPiece.acquisition.method} {artPiece.acquisition.creditLine} on {artPiece.acquisition.date.replace('T00:00:00', '')}</p>
-                 <p>Physical medium: {artPiece.physicalMedium}</p>
-
-            </article>
     </section>
   )
 }
