@@ -79,6 +79,7 @@ const SingleArtPiece = () => {
                     </span>
                      {artPiece.physicalMedium}
                 </p>
+                <Link to={`/art/${artPiece.objectNumber}/tiles`} className='btn btn-white'>See Tiles</Link>
                 </div>
             </div>
     </section>
