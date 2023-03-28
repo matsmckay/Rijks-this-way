@@ -7,7 +7,14 @@ const TileArtPiece = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [imageTiles, setImageTiles] = useState(null);
+    const [imageTileSize, setImageTileSize] = useState('Select a size');
     console.log(id);
+
+    const handleSizeChange = (e) => {
+        setImageTileSize(e.target.value);
+        console.log(imageTileSize)
+    }
+
 
     React.useEffect(() => {
     setLoading(true);
@@ -24,14 +31,14 @@ const TileArtPiece = () => {
                 console.log(data)
                 const tiles = data;
                 console.log(tiles)
-                if (tiles.levels) {
+                if (tiles) {
                     const {
-                        name:size,
-                        tiles:pieces 
-                    } = tiles.levels[0];
+                        levels:sizes,
+                        
+                    } = tiles;
                     const newTiles = {
-                        size,
-                        pieces
+                        sizes,
+                        
                     }
                     setImageTiles(newTiles)
                 } else {
@@ -55,15 +62,40 @@ const TileArtPiece = () => {
         return <h2 className='section-title'>Sorry, no tiles to display for this piece</h2>
     }
 
-    const {size, pieces} = imageTiles;
+    const {sizes} = imageTiles;
   return (
+    
     <section className='section artPiece-section'>
         <Link to="/" className='btn btn-primary'>
             back home
         </Link>
-        <h2>Size: {size}</h2>
+    <form onSubmit={tiles.map((tile) => {
+        const {url} = tile
+        return (
+            <div>{url}</div>
+        )
+    })}>
+
+    <select 
+        onChange={handleSizeChange}  
+        value={imageTileSize}
+        required
+        name="" 
+        id="">
+        <option value="Select a size. ">Select an image size</option>
+        {sizes.map((size, index) =>  {
+            const {name, tiles} = size;
+            return (
+                <>  
+                <option key={index} value={name}>{name}</option>
+                <div>{tiles.url}</div>
+                </>
+            )
+        })}
+        </select>
+    </form>
         <div>
-            {pieces.map((piece, index) => {
+            {/* {pieces.map((piece, index) => {
                 const {url} = piece;
             return (
             <article key={index}>
@@ -71,7 +103,7 @@ const TileArtPiece = () => {
                 <img src={url} alt="" />
             </article>
             )
-            })}
+            })} */}
         </div>
 
     </section>
