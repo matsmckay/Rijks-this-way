@@ -8,6 +8,7 @@ const TileArtPiece = () => {
     const [loading, setLoading] = useState(false);
     const [imageTiles, setImageTiles] = useState(null);
     const [imageTileSize, setImageTileSize] = useState('Select a size');
+    const [getTiles, setGetTiles] = ([]);
     console.log(id);
 
     const handleSizeChange = (e) => {
@@ -63,18 +64,18 @@ const TileArtPiece = () => {
     }
 
     const {sizes} = imageTiles;
+    // const findTiles = () => sizes.map((size) => {
+    //     const {tiles} = size;
+    //     setGetTiles(tiles);
+    //     console.log(tiles)
+    // })
   return (
     
     <section className='section artPiece-section'>
         <Link to="/" className='btn btn-primary'>
             back home
         </Link>
-    <form onSubmit={tiles.map((tile) => {
-        const {url} = tile
-        return (
-            <div>{url}</div>
-        )
-    })}>
+    <form>
 
     <select 
         onChange={handleSizeChange}  
@@ -82,19 +83,20 @@ const TileArtPiece = () => {
         required
         name="" 
         id="">
-        <option value="Select a size. ">Select an image size</option>
+        <option value="" disabled >Select an image size</option>
         {sizes.map((size, index) =>  {
-            const {name, tiles} = size;
+            const {name, width, height} = size;
             return (
                 <>  
-                <option key={index} value={name}>{name}</option>
-                <div>{tiles.url}</div>
+                <option key={index} value={name}>width: {width}px, height:  {height}px </option>
                 </>
             )
         })}
         </select>
+        <button className='btn' type='submit'>Get me my tiles!</button>
     </form>
         <div>
+            <img></img>
             {/* {pieces.map((piece, index) => {
                 const {url} = piece;
             return (
