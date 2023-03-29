@@ -8,14 +8,8 @@ const TileArtPiece = () => {
     const [loading, setLoading] = useState(false);
     const [imageTiles, setImageTiles] = useState(null);
     const [imageTileSize, setImageTileSize] = useState('Select a size');
-    const [getTiles, setGetTiles] = ([]);
+    const [getTiles, setGetTiles] = useState([]);
     console.log(id);
-
-    const handleSizeChange = (e) => {
-        setImageTileSize(e.target.value);
-        console.log(imageTileSize)
-    }
-
 
     React.useEffect(() => {
     setLoading(true);
@@ -55,6 +49,12 @@ const TileArtPiece = () => {
     artTiles();
     },[id])   
 
+    const handleSizeChange = (e) => {
+        console.log(imageTileSize)
+        setImageTileSize(e.target.value);
+    }
+
+
     if (loading) {
         return <Loading />
     }
@@ -64,39 +64,50 @@ const TileArtPiece = () => {
     }
 
     const {sizes} = imageTiles;
-    // const findTiles = () => sizes.map((size) => {
-    //     const {tiles} = size;
-    //     setGetTiles(tiles);
-    //     console.log(tiles)
-    // })
+    console.log(sizes)
+    const rijksImageTiles = (e) => {
+        e.preventDefault();
+        if (imageTileSize === sizes.name) {
+            const {
+                url
+            } = imageTileSize;
+            const newTileChoice = {
+                url
+            }
+            setGetTiles(newTileChoice)
+            console.log(getTiles)
+        }
+    }
+    
   return (
     
     <section className='section artPiece-section'>
         <Link to="/" className='btn btn-primary'>
             back home
         </Link>
-    <form>
-
-    <select 
-        onChange={handleSizeChange}  
-        value={imageTileSize}
-        required
-        name="" 
-        id="">
-        <option value="" disabled >Select an image size</option>
-        {sizes.map((size, index) =>  {
-            const {name, width, height} = size;
-            return (
-                <>  
-                <option key={index} value={name}>width: {width}px, height:  {height}px </option>
-                </>
-            )
-        })}
-        </select>
-        <button className='btn' type='submit'>Get me my tiles!</button>
+    <form onSubmit={rijksImageTiles}>
+        <label className="tile-page" htmlFor="rijksTiles"></label>
+        <select 
+            id="rijksTiles"
+            name="rijksTiles" 
+            onChange={handleSizeChange}  
+            value={imageTileSize}
+            required
+            >
+            <option value="" disabled >Select an image size</option>
+            {sizes.map((size, index) =>  {
+                const {name, width, height} = size;
+                return (
+                    <>  
+                    <option key={index} value={name}>width: {width}px, height:  {height}px </option>
+                    </>
+                )
+            })}
+            </select>
+            <button className='btn' type='submit'>Get me my tiles!</button>
     </form>
         <div>
-            <img></img>
+            <img>{}</img>
             {/* {pieces.map((piece, index) => {
                 const {url} = piece;
             return (
