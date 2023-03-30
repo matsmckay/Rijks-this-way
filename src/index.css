@@ -403,3 +403,22 @@ Form
   padding: 0.5rem;
   font-size: 1.2rem;
 }
+
+/* 
+====== 
+Tile Art Pieces
+======
+*/
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.tiles img {
+  padding: 20px;
+  width: 30%;
+  border-radius: var(--mainBorderRadius);
+}

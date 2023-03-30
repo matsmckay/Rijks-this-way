@@ -7,7 +7,7 @@ const TileArtPiece = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [imageTiles, setImageTiles] = useState(null);
-    const [imageTileSize, setImageTileSize] = useState('Select a size');
+    const [imageTileSize, setImageTileSize] = useState('');
     const [getTiles, setGetTiles] = useState([]);
     console.log(id);
 
@@ -65,19 +65,25 @@ const TileArtPiece = () => {
 
     const {sizes} = imageTiles;
     console.log(sizes)
+    
     const rijksImageTiles = (e) => {
         e.preventDefault();
-        if (imageTileSize === sizes.name) {
-            const {
-                url
-            } = imageTileSize;
-            const newTileChoice = {
-                url
+        const input = imageTileSize
+        console.log(input)
+        sizes.map((size) => {
+            const {name, tiles} = size
+            console.log(name, tiles)
+            if (input === name) {
+                const newTiles = tiles.map((tile) => {
+                    return (tile)
+                })
+                setGetTiles(newTiles)
+                console.log(getTiles)
             }
-            setGetTiles(newTileChoice)
-            console.log(getTiles)
-        }
+            
+        })
     }
+   
     
   return (
     
@@ -97,6 +103,7 @@ const TileArtPiece = () => {
             <option value="" disabled >Select an image size</option>
             {sizes.map((size, index) =>  {
                 const {name, width, height} = size;
+                
                 return (
                     <>  
                     <option key={index} value={name}>width: {width}px, height:  {height}px </option>
@@ -106,17 +113,16 @@ const TileArtPiece = () => {
             </select>
             <button className='btn' type='submit'>Get me my tiles!</button>
     </form>
-        <div>
-            <img>{}</img>
-            {/* {pieces.map((piece, index) => {
-                const {url} = piece;
-            return (
-            <article key={index}>
+        <div className='tiles'>
+            {getTiles.map((getTile, index) => {
+                const {url} = getTile;
+                console.log(url)
+                return (
 
-                <img src={url} alt="" />
-            </article>
-            )
-            })} */}
+                    <img key={index} src={url} alt="" />
+                )
+            })} 
+            
         </div>
 
     </section>
