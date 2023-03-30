@@ -128,6 +128,10 @@ Buttons
 
 }
 
+.tile-btn {
+  margin-top: 10px;
+}
+
 
 /* 
 ====== 
@@ -148,7 +152,7 @@ Navbar
 .navbar h1 {
   color: var(--primaryColor);
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .nav-title {
@@ -404,6 +408,12 @@ Form
   font-size: 1.2rem;
 }
 
+.tile-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* 
 ====== 
 Tile Art Pieces
@@ -419,6 +429,6 @@ Tile Art Pieces
 
 .tiles img {
   padding: 20px;
-  width: 30%;
+  width: calc(50% - (20px));
   border-radius: var(--mainBorderRadius);
 }

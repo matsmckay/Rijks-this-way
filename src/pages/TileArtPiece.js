@@ -91,7 +91,8 @@ const TileArtPiece = () => {
         <Link to="/" className='btn btn-primary'>
             back home
         </Link>
-    <form onSubmit={rijksImageTiles}>
+    <h2 className='section-title'>Select a tile size in the dropdown menu and click!</h2>
+    <form className='tile-form' onSubmit={rijksImageTiles}>
         <label className="tile-page" htmlFor="rijksTiles"></label>
         <select 
             id="rijksTiles"
@@ -111,7 +112,7 @@ const TileArtPiece = () => {
                 )
             })}
             </select>
-            <button className='btn' type='submit'>Get me my tiles!</button>
+            <button className='btn tile-btn' type='submit'>Get me my tiles!</button>
     </form>
         <div className='tiles'>
             {getTiles.map((getTile, index) => {
