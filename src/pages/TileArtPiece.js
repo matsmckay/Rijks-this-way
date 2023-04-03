@@ -68,21 +68,41 @@ const TileArtPiece = () => {
     
     const rijksImageTiles = (e) => {
         e.preventDefault();
-        const input = imageTileSize
-        console.log(input)
-        sizes.map((size) => {
-            const {name, tiles} = size
+
+        const selectedSize = imageTileSize;
+        console.log(selectedSize);
+
+        sizes.forEach((size) => {
+            const {name, tiles} = size;
             console.log(name, tiles)
-            if (input === name) {
-                const newTiles = tiles.map((tile) => {
-                    return (tile)
-                })
-                setGetTiles(newTiles)
+
+            if (selectedSize === name) {
+                const newTiles = tiles.map((tile) => tile);
+                setGetTiles(newTiles);
                 console.log(getTiles)
             }
-            
         })
+
     }
+
+
+    // const rijksImageTiles = (e) => {
+    //     e.preventDefault();
+    //     const input = imageTileSize
+    //     console.log(input)
+    //     sizes.map((size) => {
+    //         const {name, tiles} = size
+    //         console.log(name, tiles)
+    //         if (input === name) {
+    //             const newTiles = tiles.map((tile) => {
+    //                 return (tile)
+    //             })
+    //             setGetTiles(newTiles)
+    //             console.log(getTiles)
+    //         }
+            
+    //     })
+    // }
    
     
   return (
