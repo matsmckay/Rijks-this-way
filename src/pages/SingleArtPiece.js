@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from '../components/Loading';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 
@@ -11,7 +11,10 @@ const SingleArtPiece = () => {
     const [artPiece, setArtPiece] = useState(null);
     const location = useLocation();
     const {from} = location.state;
-   
+    const navigate = useNavigate();
+    let goBack = () => {
+        navigate(-1);
+    }
     
     React.useEffect(() => {
         setLoading(true);
@@ -44,13 +47,13 @@ const SingleArtPiece = () => {
         return <Loading />
     }
     if (!artPiece ) {
-        return <h2 className='section-title'>No priceless piece of art to display</h2>
+        return (
+            <h2 className='section-title'>No priceless piece of art to display</h2>
+        ) 
     }
     return (
         <section className='section artPiece-section'>
-            <Link to="/" className='btn btn-white'>
-                back home
-            </Link>
+            <button className='btn btn-primary' onClick={goBack}>Back to image results</button>
             <h2 className='section-title'>{artPiece.longTitle}</h2>
             <div className="culture">
                 <img src={from} alt={artPiece.title} />

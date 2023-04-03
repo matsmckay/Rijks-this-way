@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Loading from '../components/Loading';
 
 
@@ -10,6 +10,11 @@ const TileArtPiece = () => {
     const [imageTileSize, setImageTileSize] = useState('');
     const [getTiles, setGetTiles] = useState([]);
     console.log(id);
+
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    }
 
     React.useEffect(() => {
     setLoading(true);
@@ -60,11 +65,16 @@ const TileArtPiece = () => {
     }
 
     if (!imageTiles) {
-        return <h2 className='section-title'>Sorry, no tiles to display for this piece</h2>
+        return (
+            <div className='btn-back'>
+            <h2 className='section-title'>Sorry, no tiles to display for this piece</h2>
+            <button className='btn btn-primary' onClick={goBack}>Back to Image Details</button>
+            </div>
+
+        )
     }
 
     const {sizes} = imageTiles;
-    console.log(sizes)
     
     const rijksImageTiles = (e) => {
         e.preventDefault();
@@ -85,32 +95,10 @@ const TileArtPiece = () => {
 
     }
 
-
-    // const rijksImageTiles = (e) => {
-    //     e.preventDefault();
-    //     const input = imageTileSize
-    //     console.log(input)
-    //     sizes.map((size) => {
-    //         const {name, tiles} = size
-    //         console.log(name, tiles)
-    //         if (input === name) {
-    //             const newTiles = tiles.map((tile) => {
-    //                 return (tile)
-    //             })
-    //             setGetTiles(newTiles)
-    //             console.log(getTiles)
-    //         }
-            
-    //     })
-    // }
-   
-    
   return (
     
     <section className='section artPiece-section'>
-        <Link to="/" className='btn btn-primary'>
-            back home
-        </Link>
+        <button className='btn btn-primary' onClick={goBack}>Back to Details</button>
     <h2 className='section-title'>Select a tile size in the dropdown menu and click!</h2>
     <form className='tile-form' onSubmit={rijksImageTiles}>
         <label className="tile-page" htmlFor="rijksTiles"></label>
@@ -124,7 +112,7 @@ const TileArtPiece = () => {
             <option value="" disabled >Select an image size</option>
             {sizes.map((size, index) =>  {
                 const {name, width, height} = size;
-                
+                console.log(index)
                 return (
                     <>  
                     <option key={index} value={name}>width: {width}px, height:  {height}px </option>
@@ -137,7 +125,7 @@ const TileArtPiece = () => {
         <div className='tiles'>
             {getTiles.map((getTile, index) => {
                 const {url} = getTile;
-                console.log(url)
+                console.log(url, index)
                 return (
 
                     <img key={index} src={url} alt="" />
