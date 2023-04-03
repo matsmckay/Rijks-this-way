@@ -436,3 +436,18 @@ Tile Art Pieces
   width: calc(50% - (20px));
   border-radius: var(--mainBorderRadius);
 }
+
+/* 
+====== 
+Dropdown (Tile Art Pieces)
+======
+*/
+
+.select {
+  padding: 8px 12px;
+  color: #333333;
+  background: #eeeeee;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+  border-radius: 5px;
+}

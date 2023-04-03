@@ -107,9 +107,11 @@ const TileArtPiece = () => {
             name="rijksTiles" 
             onChange={handleSizeChange}  
             value={imageTileSize}
+            className='select'
             required
+
             >
-            <option value="" disabled >Select an image size</option>
+            <option value="" selected disabled >Select an image size</option>
             {sizes.map((size, index) =>  {
                 const {name, width, height} = size;
                 console.log(index)
