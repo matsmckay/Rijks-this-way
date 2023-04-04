@@ -99,7 +99,7 @@ const TileArtPiece = () => {
     
     <section className='section artPiece-section'>
         <button className='btn btn-back' onClick={goBack}>Back to Image Details</button>
-    <h2 className='section-title'>Select a tile size in the dropdown menu and click!</h2>
+    <h2 className='section-title'>Select a tile size in the dropdown menu and then 'Go Get Your tiles!'</h2>
     <form className='tile-form' onSubmit={rijksImageTiles}>
         <label className="tile-page" htmlFor="rijksTiles"></label>
         <select 
