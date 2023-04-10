@@ -173,7 +173,8 @@ Navbar
 }
 
 .nav-center {
-  font-size: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 .nav-links {
@@ -181,7 +182,7 @@ Navbar
   align-items: center;
 }
 
-.nav-links a {
+.nav-links li {
   text-transform: capitalize;
   display: inline-block;
   font-weight: bold;

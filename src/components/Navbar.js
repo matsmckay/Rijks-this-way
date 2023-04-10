@@ -13,7 +13,7 @@ const Navbar = () => {
             <div className="nav-center">
                 <div className="nav-center">
                     <Link to="/">
-                        <BsEasel />
+                        <BsEasel/>Home
                     </Link>
                 </div>
                 <ul className="nav-links">
