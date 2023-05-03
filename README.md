@@ -1,6 +1,6 @@
-# Portfolio Website
+# Night at the Rijks Museum
 
-This is my portfolio website built using React, CSS, and HTML. The website showcases my projects, skills, and experience as a web developer.
+Night at the Rijks Museum is a web application that allows users to search for priceless art from the world-famous Rijksmuseum in Amsterdam. By using the Rijksmuseum RESTful API, users can enter a keyword and search for beautiful art related to their search. 
 
 ## Table of Contents
 
@@ -14,29 +14,42 @@ This is my portfolio website built using React, CSS, and HTML. The website showc
 ## Technologies Used
 
 - React
-- Sass
 - HTML
+- CSS
+- Rijksmuseum RESTful API
 
 ## Live Site URL
 
-- Check out the live site here! 😊 https://https://main--cozy-taiyaki-16d73a.netlify.app/
+https://main--cozy-taiyaki-16d73a.netlify.app/
 
 ## Getting Started
 
 To get started with this project, clone this repository to your local machine by running the following command in your terminal:
 
 ```sh
-git clone https://github.com/your-username/your-repository.git
+git clone https://github.com/your-username/night-at-the-rijks-museum.git
 ```
 
-Once you have cloned the repository, open the `index.html` file in your browser to view the website.
+Once you have cloned the repository, navigate to the root folder of the project and install the dependencies by running:
+
+```sh
+npm install
+```
+
+After installing the dependencies, start the development server by running:
+
+```sh
+npm start
+```
+
+This will start the application in your browser at `http://localhost:3000/`.
 
 ## Features
 
-- Responsive design for optimal viewing on all devices
-- Projects section featuring a selection of my favorite projects
-- Skills section showcasing my technical skills
-- Experience section detailing my professional experience as a web developer
+- Search for artwork by keyword
+- View artwork details including the artist, creation date, material, and image tiles options
+- Navigate through multiple pages of search results
+- Three different API endpoints from the Rijksmuseum: search, object details, and image tiles
 
 ## Contributing
 
@@ -48,3 +61,7 @@ If you would like to contribute to this project, please follow these steps:
 4. Commit your changes (`git commit -m "Add your commit message here"`)
 5. Push to the branch (`git push origin feature/your-feature-name`)
 6. Open a pull request
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use this code for your own project or modify it as you see fit.
