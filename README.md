@@ -5,6 +5,7 @@ This is my portfolio website built using React, CSS, and HTML. The website showc
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
+- [Live Site URL](#live-site-url)
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Contributing](#contributing)
@@ -15,6 +16,10 @@ This is my portfolio website built using React, CSS, and HTML. The website showc
 - React
 - Sass
 - HTML
+
+## Live Site URL
+
+- Check out the live site here! 😊 https://https://main--cozy-taiyaki-16d73a.netlify.app/
 
 ## Getting Started
 
